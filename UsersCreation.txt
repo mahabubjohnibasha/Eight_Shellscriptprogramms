@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Welocome to onBoard!"
+figlet TCS
+read -p "hello there , please enter username:" name
+read -p "Enter your desired username: " usrname
+read -sp "Enter your desired password: " pass
+read -p "Enter your Designation: " desg
+sudo useradd -s /bin/bash -m -d /home/$usrname -c $desg -p $usrname &>> error.log
+if [ $? -eq 0]
+then
+echo "congratulation $name, your account $username is successfully created"
+else
+echo "sorry unable to process your request. please contact admin"
+fi
